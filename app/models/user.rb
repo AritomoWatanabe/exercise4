@@ -5,6 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable,:validatable
 
   has_many :books, dependent: :destroy
+
+  has_many :favorites, dependent: :destroy
+  has_many :fav_books, through: :favorites, source: :book
+
   attachment :profile_image, destroy: false
 
   attachment :profile_image
