@@ -48,6 +48,12 @@
 					<td>
 						<%= render partial: 'books/books', locals: { book: book } %>
 					</td>
+
+					<td>
+						<i class="fa fa-comment"></i>
+						<a href="#comments"><%= "コメント数: #{book.book_comments.count}" %></a>
+					</td>
+
 				</tr>
 				<% end %>
 			</tbody>

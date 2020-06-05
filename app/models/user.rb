@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :favorites, dependent: :destroy
   has_many :fav_books, through: :favorites, source: :book
+  has_many :book_comments, dependent: :destroy
 
   attachment :profile_image, destroy: false
 

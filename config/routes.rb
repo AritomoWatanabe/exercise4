@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   	delete '/favorite/:book_id' => 'favorites#unfavorite', as: 'unfavorite'
 
   	resources :users, only: [:show,:index,:edit,:update]
-  	resources :books, only: [:new, :create, :index, :show, :destroy, :edit, :update]
-
+  	resources :books, only: [:new, :create, :index, :show, :destroy, :edit, :update] do
+  		resources :book_comments, only: [:create, :destroy]
+  	end
 
 end
