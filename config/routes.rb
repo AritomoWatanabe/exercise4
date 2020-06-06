@@ -5,12 +5,12 @@ Rails.application.routes.draw do
 	root 'home#top'
   	get 'home/about'
 
-  	post   '/favorite/:book_id' => 'favorites#favorite',   as: 'favorite'
-  	delete '/favorite/:book_id' => 'favorites#unfavorite', as: 'unfavorite'
-
   	resources :users, only: [:show,:index,:edit,:update]
   	resources :books, only: [:new, :create, :index, :show, :destroy, :edit, :update] do
   		resources :book_comments, only: [:create, :destroy]
   	end
+
+  	post '/favorite/:book_id' => 'favorites#create', as:'create'
+  	delete '/favorite/:book_id' => 'favorites#destroy', as:'destroy'
 
 end

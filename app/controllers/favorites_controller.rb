@@ -1,12 +1,12 @@
 class FavoritesController < ApplicationController
 	before_action :set_variables
 
-  	def favorite
+  	def create
     	favorite = current_user.favorites.new(book_id: @book.id)
     	favorite.save
   	end
 
-  	def unfavorite
+  	def destroy
     	favorite = current_user.favorites.find_by(book_id: @book.id)
     	favorite.destroy
   	end
