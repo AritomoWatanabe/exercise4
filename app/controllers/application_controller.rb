@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
-	# before_action :authenticate_user!
+	before_action :authenticate_user!
 	protect_from_forgery with: :exception
+
+  helper_method :logged_in?
 
 
   def after_sign_in_path_for(resource)
@@ -10,6 +12,7 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(resource)
     session[:previous_url] || root_path
   end
+
 
 
   # deviseコントローラーにストロングパラメータを追加する
