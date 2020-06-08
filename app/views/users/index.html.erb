@@ -43,7 +43,7 @@
 			<td><%= user.following.count %></td>
 			<td><%= user.followers.count %></td>
 			<td><%= link_to "Show", user, class: "user_#{user.id}" %></td>
-			<td><%= render 'follow_form2' , user: user %></td>
+			<td><%= render 'follow_form' , user: user %></td>
 		</tr>
 		<% end %>
 	</tbody>
